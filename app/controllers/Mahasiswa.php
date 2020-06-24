@@ -61,12 +61,17 @@ class Mahasiswa extends Controller
         exit;
     }
 
-    public function search()
+    // public function search()
+    // {
+    //     $datas['judul'] = "Daftar Mahasiswa";
+    //     $datas['mahasiswa'] = $this->model("Mahasiswa_model")->searchMahasiswa($_POST);
+    //     $this->view("templates/header", $datas);
+    //     $this->view("mahasiswa/index", $datas);
+    //     $this->view("templates/footer");
+    // }
+
+    public function liveSearch()
     {
-        $datas['judul'] = "Daftar Mahasiswa";
-        $datas['mahasiswa'] = $this->model("Mahasiswa_model")->searchMahasiswa($_POST);
-        $this->view("templates/header", $datas);
-        $this->view("mahasiswa/index", $datas);
-        $this->view("templates/footer");
+        echo json_encode($this->model("Mahasiswa_model")->searchMahasiswa($_POST));
     }
 }

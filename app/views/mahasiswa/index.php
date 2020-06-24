@@ -12,27 +12,22 @@
             <button type="button" class="btn btn-primary btnTambah mb-3" data-toggle="modal" data-target="#formModal">
                 Tambah data mahasiswa
             </button>
-            <form action="<?= BASEURL ?>mahasiswa/search" method="POST">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" placeholder="Search...." name="keyword" autocomplete="off">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">Search</button>
-                    </div>
-                </div>
-            </form>
+            <div class="input-group mb-2">
+                <input type="text" class="form-control searchKeyword" placeholder="Search...." autocomplete="off">
+            </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-6">
-            <ul class="list-group">
+            <ul class="list-group" id="mahasiswaWrap">
                 <?php foreach ($data["mahasiswa"] as $mhs) : ?>
                     <li class="list-group-item">
                         <?= $mhs['nama']; ?>
 
                         <a href="<?= BASEURL ?>mahasiswa/delete/<?= $mhs['id'] ?> " class="badge badge-danger float-right ml-1" onclick="return confirm('Yakin?')">Delete</a>
                         <a href="" class="badge badge-success float-right btnUbah ml-1" data-id="<?= $mhs['id'] ?>" data-toggle="modal" data-target="#formModal">Ubah</a>
-                        <a href="<?= BASEURL ?>mahasiswa/detail/<?= $mhs['id'] ?> " class="badge badge-primary float-right">Detail</a>
+                        <a href=" <?= BASEURL ?>mahasiswa/detail/<?= $mhs['id'] ?> " class=" badge badge-primary float-right">Detail</a>
                     </li>
                 <?php endforeach ?>
             </ul>
